@@ -1,0 +1,49 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: ${USER_SERVICE_URI:lb://USER-SERVICE}
+          predicates:
+            - Path=/api/v1/users/**
+          filters:
+            - StripPrefix=2
+
+        - id: post-service
+          uri: ${POSTS_SERVICE_URI:lb://POST-SERVICE}
+          predicates:
+            - Path=/api/v1/posts/**
+          filters:
+            - StripPrefix=2
+
+        - id: connection-service
+          uri: ${CONNECTIONS_SERVICE_URI:lb://CONNECTION-SERVICE}
+          predicates:
+            - Path=/api/v1/connections/**
+          filters:
+            - StripPrefix=2
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery-server:8761/eureka
+  instance:
+    hostname: discovery-server
+
+jwt:
+  secretKey: a;fkdsfirnafsanajganfugrpgj4ng9-pqw4fg-rngjsr08ue;gbs-rep;gus;9watgb
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
