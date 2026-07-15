@@ -147,7 +147,7 @@ kubectl apply -f k8s/
 
 \---
 
-<div>
+<div align="center">
 <sub>Built by Tejeshwini C H</sub>
 </div>
 
