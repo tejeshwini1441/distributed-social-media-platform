@@ -3,6 +3,7 @@
 # 🔗 distributed-social-media-platform
 
 **A LinkedIn-inspired social network backend, built as 6 Java microservices — centralized JWT auth, Kafka-driven notifications, a Neo4j-backed connection graph, and circuit breakers that keep the system alive when one service is struggling.**
+</div>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Java-21-orange?logo=openjdk" />
@@ -146,7 +147,7 @@ kubectl apply -f k8s/
 
 \---
 
-<div align="center">
+<div>
 <sub>Built by Tejeshwini C H</sub>
 </div>
 
